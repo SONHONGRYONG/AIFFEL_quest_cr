@@ -23,11 +23,18 @@ class PomodoroTimer {
         isWorking
         ? workDuration 
         : (currentCycle == cycle - 1 ? longBreak : shortBreak);
+    
         //isWorking이 true(작업 중) 이면 workDuration(25초) 할당
         //isWorking이 false(휴식 시간) 이면 두 번째 조건문 실행
-
         //currentCycle == cycle - 1이면 긴 휴식 (longBreak, 15초) 적용
         //그렇지 않으면 짧은 휴식 (shortBreak, 5초) 적용
+    
+        //(조건식 ? 참일 때 값 : 거짓일 때 값)
+        //위 코드에서:
+        //currentCycle == cycle - 1 → 조건식
+        //longBreak → 조건이 참일 경우 반환값 (마지막 작업 후 긴 휴식)
+        //shortBreak → 조건이 거짓일 경우 반환값 (일반적인 짧은 휴식)
+
 
     // 1초마다 실행되는 타이머 설정, Timer 클래스 사용, 인스턴수 변수 timer 호출
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
